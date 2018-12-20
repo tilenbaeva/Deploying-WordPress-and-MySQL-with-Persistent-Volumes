@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind : Ingress
+metadata:
+  name: aiza-ingress
+spec:
+  tls:
+   - hosts:
+     - aiza.com
+     secretName: ingress-tls
+  rules:
+  - host: aiza.com
+  - http:
+      paths:
+      - path: /kubernetes3
+        backend:
+          serviceName: wordpress
+          servicePort: 80
